@@ -19,6 +19,7 @@ connect();
     */
 
 const goodsRouter = require("./routes/goods");
+const cartsRouter = require("./routes/carts");
 
 
 const requestMiddelware = (req, res, next) => {
@@ -29,7 +30,7 @@ const requestMiddelware = (req, res, next) => {
 app.use(express.json());
 app.use(requestMiddelware);
 
-app.use("/api", [goodsRouter]);
+app.use("/api", [goodsRouter, cartsRouter]);
 
 app.get("/", (req, res) => {
     res.send("Hello world")
